@@ -1,35 +1,182 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-a,
-.green {
+/* Variables */
+:root {
+  --bg-color-primair: #fff;
+  --bg-color-secundair: #333;
+  --color-primair: #000;
+  --color-secundair: #f2f2f2;
+  --color-soft: #828282;
+  --vertical-bar-color: #f7df94;
+  --border-width: 0.8rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  root {
+    --bg-color-primair: #333;
+    --bg-color-secundair: #fff;
+    --color-primair: #f2f2f2;
+    --color-secundair: #000;
+    --color-soft: #828282;
+  }
+}
+
+/* Elements */
+body {
+  background: var(--bg-color-primair);
+  color: var(--color-primair);
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  height: min-content;
+}
+
+footer {
+  grid-area: footer;
+  grid-auto-flow: column;
+  display: grid;
+  justify-content: center;
+  align-content: flex-end;
+}
+
+header {
+  grid-area: header;
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem 4rem;
+}
+
+
+header a,
+header a:active,
+header a:hover,
+header a:visited {
+  color: var(--color-primair);
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+  font-size: 1.125rem;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  gap: 0.4rem;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+
+main {
+  grid-area: quote;
+}
+
+/*  classes */
+.container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr 14fr 1fr;
+  grid-template-areas:
+    "header header header header header header"
+    "emmpty quote quote quote quote empty"
+    "footer footer footer footer footer footer";
+}
+
+/* Transitions */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/*  Css for Quote  */
+
+.quote-text {
+  font-size: 2.25rem;
+  font-weight: 500;
+  padding-left: 2rem;
+  border-left: var(--vertical-bar-color) solid var(--border-width);
+}
+
+.quote-author {
+  grid-area: author;
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding-left: 2rem;
+}
+
+.quote-genre {
+  grid-area: genre;
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding-left: 2rem;
+  color: var(--color-soft);
+}
+
+.goto-author {
+  display: none;
+}
+
+.caption,
+.caption-no-link,
+.caption:active,
+.caption:hover,
+.caption:visited {
+  display: grid;
+  align-content: center;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "author arrow"
+    "genre arrow";
+  padding-left: 1rem;
+  height: 4rem;
+  color: var(--color-primair);
+  text-decoration: none;
+}
+
+.caption:hover {
+  background: var(--bg-color-secundair);
+
+  .quote-author {
+    background: var(--bg-color-secundair);
+    color: var(--color-secundair);
+  }
+
+  .quote-genre {
+    background: var(--bg-color-secundair);
+  }
+
+  .goto-author {
+    display: block;
+    grid-area: arrow;
+    justify-self: center;
+    align-self: center;
+    color: var(--bg-color-primair);
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+/*  Author Quote list */
+.quote-list {
+  list-style-type: none;
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+  .qoute-list-element {
+    margin-bottom: 5rem;
+  }
+}
+
+.quote-list-autor {
+  display: grid;
+  justify-items: center;
+
+  & h2 {
+    font-size: 3rem;
+    font-weight: 700;
   }
 }

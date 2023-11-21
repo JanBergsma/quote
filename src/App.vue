@@ -33,7 +33,7 @@ import LoaderView from './components/LoaderView.vue';
       </RouterView>
     </main>
     <footer>
-      created by <i>username</i> - devChallenges.io
+      created by - <strong> Jan Bergsma </strong> - devChallenges.io
     </footer>
   </div>
 </template>

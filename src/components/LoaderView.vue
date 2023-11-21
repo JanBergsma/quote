@@ -18,7 +18,7 @@ import SVGSpinner from './icons/SVGSpinner.vue';
 
 
 .xxl {
-    height: 10rem;
-    width: 10rem;
+    height: 7rem;
+    width: 7rem;
 }
 </style>

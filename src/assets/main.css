@@ -17,7 +17,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  root {
+  :root {
     --bg-color-primair: #333;
     --bg-color-secundair: #fff;
     --color-primair: #f2f2f2;
@@ -32,7 +32,6 @@ body {
   color: var(--color-primair);
   font-family: 'Raleway', sans-serif;
   margin: 0;
-  height: min-content;
 }
 
 footer {
@@ -41,6 +40,7 @@ footer {
   display: grid;
   justify-content: center;
   align-content: flex-end;
+  margin-top: 1rem;
 }
 
 header {
@@ -73,11 +73,12 @@ main {
 .container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 1fr 14fr 1fr;
+  grid-template-rows: 5rem 1fr 5rem;
   grid-template-areas:
     "header header header header header header"
     "emmpty quote quote quote quote empty"
     "footer footer footer footer footer footer";
+  min-height: 95vh;
 }
 
 /* Transitions */
